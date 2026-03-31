@@ -22,7 +22,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'echo Deploy Stage'
+                scp -i key_1.pem calculator.py ec2-user@ec2-13-60-47-147.eu-north-1.compute.amazonaws.com:/home/ec2-user/
             }
         }
     }

@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Abhiroop3917/labsheet1-2025sl93006.git'
+                git branch: 'main', url: 'https://github.com/Abhiroop3917/labsheet1-2025sl93006.git'
             }
         }
 
@@ -16,9 +16,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh '''
-                python3 calculator.py
-                '''
+                sh 'python3 calculator.py'
             }
         }
 

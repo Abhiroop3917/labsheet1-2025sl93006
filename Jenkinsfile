@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Abhiroop3917/labsheet1-2025sl93006.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'echo Build Stage'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh '''
+                python3 calculator.py
+                '''
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'echo Deploy Stage'
+            }
+        }
+    }
+}

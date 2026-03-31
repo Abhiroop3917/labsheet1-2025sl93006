@@ -21,9 +21,11 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                scp -i key_1.pem calculator.py ec2-user@ec2-13-60-47-147.eu-north-1.compute.amazonaws.com:/home/ec2-user/
-            }
-        }
+    steps {
+        sh '''
+        scp -o StrictHostKeyChecking=no -i ~/.jenkins/key_1.pem calculator.py ec2-user@ec2-13-60-47-147.eu-north-1.compute.amazonaws.com:/home/ec2-user/
+        '''
+    }
+}
     }
 }
